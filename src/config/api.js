@@ -4,4 +4,13 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'https://atlas-arrow-backend.onrender.com/api',
 });
 
+// Auto-inject Authorization header if token exists in sessionStorage
+api.interceptors.request.use((config) => {
+  const token = sessionStorage.getItem('token');
+  if (token && !config.headers.Authorization) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 export default api;
