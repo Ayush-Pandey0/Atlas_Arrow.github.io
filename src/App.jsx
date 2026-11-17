@@ -25,8 +25,8 @@ import AdminProtectedRoute from './components/AdminProtectedRoute';
 import ChangePassword from './pages/ChangePassword';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
-// Google OAuth Client ID - Replace with your own from Google Cloud Console
-const GOOGLE_CLIENT_ID = '204796115276-8ocer6h76jd26fa5t897ttvqdh9ffoip.apps.googleusercontent.com';
+// Google OAuth Client ID - Uses environment variable or default Console Client ID
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '410833924923-18rqkbhjitikp4he3gb0pvm1b0dlff5h.apps.googleusercontent.com';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
